@@ -5,16 +5,19 @@
 </h1>
 <div class="row center" style="margin-top: -2rem;margin-bottom: 0.5rem">
     <h5 class="header col s12 grey-text text-darken-4">
-        May 27&ndash;30, 2016
+        2018 Dates Coming Soon
+        {#
         <div style="margin-top: 0.75rem">
             <p>9PM&ndash;9PM EDT</p>
             <p>Registration is now closed.</p>
             <p>Please email ctf@tjhsst.edu to request a team creation.</p>
         </div>
+        #}
     </h5>
 </div>
 <div class="row center">
-    <a href="//compete.tjctf.org/login/" id="register-now" class="btn-large waves-effect waves-light light-blue">Play Now</a>
+    <a href="#register" id="register-now" class="btn-large waves-effect waves-light light-blue">Register for Emails</a>
+    {# <a href="//compete.tjctf.org/login/" id="register-now" class="btn-large waves-effect waves-light light-blue">Play Now</a> #}
 </div>
 <div class="parallax blurred transluscent"><img src={{ url_for('static', filename="dome.png") }} alt="TJHSST Dome"></div>
 {% endblock %}
@@ -34,7 +37,8 @@
             <div class="icon-block">
                 <h2 class="center black-text"><i class="material-icons light-blue-text">people</i></h2>
                 <h5 class="center grey-text text-darken-4">How do I register?</h5>
-                <p class="light grey-text text-darken-2"><strong>Registration is now closed. To create a team, please email ctf@tjhsst.edu. Note: Response to team creation requests may take some time. </strong>TJCTF is open to all eligible High School students (tl;dr Americans, but if you have questions read the rules). You can compete in teams consisting of up to 5 members. Teams who do not fit these criteria may play, but are not eligible for prizes.</p>
+                <p class="light grey-text text-darken-2"><strong>Registration details coming soon. </strong>TJCTF is open to all eligible High School students (tl;dr Americans, but if you have questions read the rules). You can compete in teams consisting of up to 5 members. Teams who do not fit these criteria may play, but are not eligible for prizes.</p>
+                {# <p class="light grey-text text-darken-2"><strong>Registration is now closed. To create a team, please email ctf@tjhsst.edu. Note: Response to team creation requests may take some time. </strong>TJCTF is open to all eligible High School students (tl;dr Americans, but if you have questions read the rules). You can compete in teams consisting of up to 5 members. Teams who do not fit these criteria may play, but are not eligible for prizes.</p> #}
             </div>
         </div>
         <div class="col s12 m3">
@@ -56,15 +60,19 @@
     </div>
 </div>
 
+{% include "register.html" %}
+
 {% include "about.html" %}
 
 {% include "rules.html" %}
 
 {% include "prep.html" %}
 
+{#
 {% include "prizes.html" %}
 
 {% include "sponsors.html" %}
+#}
 <br />
 <br />
 <br />
