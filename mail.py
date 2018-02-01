@@ -5,14 +5,15 @@ def validate_email(email_address):
     auth_data = ("api", mailgun.pub_key)
     payload = {"address": email_address}
     data = requests.get("https://api.mailgun.net/v3/address/validate", auth=auth_data, params=payload).json()
+    print(data)
     return data['is_valid']
 
 def send_confirmation_email(name, email_address):
     auth_data = ('api', mailgun.mailgun_key)
-    email_from = 'TJCTF 2016 <noreply@{}>'.format(mailgun.site_url)
+    email_from = 'TJCTF 2018 <noreply@{}>'.format(mailgun.site_url)
     email_to = [email_address]
     subject = "Thanks For Signing Up for TJCTF Emails!"
-    body = "Hi {},\n\nThank you for signing up for TJCTF Emails. We will send out more information about TJCTF 2016 as it becomes available.\n\nThanks,\nTJCTF 2016".format(name)
+    body = "Hi {},\n\nThank you for signing up for TJCTF Emails. We will send out more information about TJCTF 2018 as it becomes available.\n\nThanks,\nTJCTF 2018".format(name)
     send_data = {"from": email_from,
             "to": email_to,
             "subject": subject,
@@ -41,4 +42,5 @@ def add_user_to_list(name, email, list_name):
     if data["message"] == 'Mailing list member has been created' or "Address already exists" in data["message"]:
         return True
     else:
-        return data["message"]
+        print(data["message"])
+        return False

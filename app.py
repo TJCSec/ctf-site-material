@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from mail import validate_email, add_user_to_list, send_confirmation_email
-from mailgun_config import list_name
+from mailgun_config import list_name, paid_account
 import string, random
 
 app = Flask(__name__)
@@ -13,7 +13,7 @@ def index():
 
     name = request.form['name']
     email_address = request.form['email']
-    if not validate_email(email_address):
+    if paid_account and not validate_email(email_address):
         return render_template("index.html", invalid_email=True)
 
     if not add_user_to_list(name, email_address, list_name):
@@ -25,4 +25,4 @@ def index():
     return render_template("index.html", success=True)
 
 if __name__ == '__main__':
-    app.run(port=9020)
+    app.run(port=9020, debug=True)
